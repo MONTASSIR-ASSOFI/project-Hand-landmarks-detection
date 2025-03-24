@@ -27,10 +27,10 @@ while True :
             x7,y7 = int(hand_landmark.landmark[7].x *width), int(hand_landmark.landmark[7].y*height)
             if y8 < y7 :
                 serial_Communication.write("ON".encode())
-                vesion.putText(frame,"UP",(50,50),vesion.FONT_HERSHEY_COMPLEX,3,(0,0,255)) 
+                vesion.putText(frame,"ON",(50,50),vesion.FONT_HERSHEY_COMPLEX,3,(0,0,255)) 
             elif  y8 > y7 :
                 serial_Communication.write("OFF".encode())
-                vesion.putText(frame,"DOWN",(50,50),vesion.FONT_HERSHEY_COMPLEX,3,(0,0,255)) 
+                vesion.putText(frame,"OFF",(50,50),vesion.FONT_HERSHEY_COMPLEX,3,(0,0,255)) 
         
 
         
