@@ -10,10 +10,6 @@ hand_solution = media.solutions.hands
 hand = hand_solution.Hands()
 drawing = media.solutions.drawing_utils
 
-
-
-
-
 while True :
     return_ , frame = camera.read()
 
@@ -25,15 +21,14 @@ while True :
 
             x8,y8 = int(hand_landmark.landmark[8].x *width) , int(hand_landmark.landmark[8].y*height)
             x7,y7 = int(hand_landmark.landmark[7].x *width), int(hand_landmark.landmark[7].y*height)
-            if y8 < y7 :
-                serial_Communication.write("ON".encode())
-                vesion.putText(frame,"ON",(50,50),vesion.FONT_HERSHEY_COMPLEX,3,(0,0,255)) 
-            elif  y8 > y7 :
-                serial_Communication.write("OFF".encode())
-                vesion.putText(frame,"OFF",(50,50),vesion.FONT_HERSHEY_COMPLEX,3,(0,0,255)) 
-        
-
-        
+             if y8 < y7 :
+                 message = "ON"
+             elif  y8 > y7 :
+                 message = "OFF"
+    
+                serial_Communication.write(message.encode())
+                vesion.putText(frame,message,(50,50),vesion.FONT_HERSHEY_COMPLEX,3,(0,0,255)) 
+              
         vesion.circle(frame,(x8,y8),2,(0,255,0))
         vesion.circle(frame,(x7,y7),2,(0,255,0))
 
